@@ -29,7 +29,6 @@ function embaralhar(lista) {
 
 function sortear() {
 
-    console.log(amigos);
     embaralhar(amigos);
     let sorteio = document.getElementById("lista-sorteio");
 
@@ -45,12 +44,10 @@ function sortear() {
 }
 
 function reiniciar() {
-    listaAmigos = [];
-    let lista = document.getElementById("lista-amigos");
-    let nomeAmigo = document.getElementById("nome-amigo");
-    let sorteio = document.getElementById("lista-sorteio");
 
-    lista.innerText = "";
-    sorteio = "";
-    nomeAmigo.value = "";
+    amigos = [];
+    document.getElementById("lista-amigos").innerHTML = "";
+    document.getElementById("nome-amigo").innerHTML = "";
+    document.getElementById("lista-sorteio").innerHTML = "";
+
 }
