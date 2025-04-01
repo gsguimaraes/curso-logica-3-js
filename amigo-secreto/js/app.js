@@ -10,10 +10,13 @@ function adicionar() {
     if(lista.textContent == "") {
         lista.textContent = amigo.value;
     } else {
-        lista.textContent += ", " + amigo.value;
+        lista.textContent = lista.textContent + ", " + amigo.value;
     }
 
     amigo.value = "";
+
+    atualizarLista();
+    atualizarSorteio();
 }
 
 function embaralhar(lista) {
@@ -41,6 +44,44 @@ function sortear() {
         }
         
     }
+}
+
+function excluirAmigo(index) {
+
+    // array.splice(posição_inicial, quantos_itens_remover);
+    amigos.splice(index, 1);
+    atualizarLista();
+    atualizarSorteio();
+
+}
+
+function atualizarSorteio() {
+
+    let sorteio = document.getElementById("lista-sorteio");
+    sorteio.innerHTML = "";
+
+}
+
+function atualizarLista() {
+
+    let lista = document.getElementById("lista-amigos");
+    lista.innerHTML = "";
+
+    for (let i = 0; i < amigos.length; i++) {
+
+        // Cria um elemento de parágrafo para cada amigo
+        let paragrafo = document.createElement('p');
+        paragrafo.textContent = amigos[i]
+
+        // Adiciona um evento de clique para excluir o amigo
+        paragrafo.addEventListener('click', function () {
+            excluirAmigo(i);
+        });
+
+        // Adiciona o parágrafo à lista
+        lista.appendChild(paragrafo);
+    }
+
 }
 
 function reiniciar() {
